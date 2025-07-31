@@ -3,6 +3,8 @@ import React from 'react';
 import {Gesture, GestureDetector,GestureHandlerRootView} from "react-native-gesture-handler";
 import Animated, {useAnimatedStyle,useSharedValue, withTiming} from 'react-native-reanimated';
 import {Entypo} from "@expo/vector-icons"
+import { router } from 'expo-router';
+
 
 
 const SwiperButton =()=>{
@@ -26,10 +28,11 @@ const SwiperButton =()=>{
 
         .onEnd((e)=>{
             if (position.value > END_POSITION / 2){
-                position.value = withTiming(END_POSITION, {duration:100});
-                onLeft.value = false;
+                position.value = 0;
+                onLeft.value = true;
+                router.push("/(tabs)/home")
             } else{
-                position.value = withTiming(0, {duration: 100});
+                position.value = withTiming(0, {duration: 20});
                 onLeft.value = true;
             }
         });
@@ -45,7 +48,7 @@ const SwiperButton =()=>{
             
                 <GestureDetector gesture={panGesture}>
                     <Animated.View style={[styles.swipeBtn, animatedStyle]}>
-                        <Entypo name='chevron-thin-right' size={24} color="red"/>
+                        <Entypo name='chevron-thin-right' size={24} color="#7B7DFF"/>
                     </Animated.View>
                 </GestureDetector>  
         </View>
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
         flexDirection:"row",
         width:"100%",
-        backgroundColor:"#E64040",
+        backgroundColor:"#7B7DFF",
         position:"relative",
         height:50,
         overflow:"hidden",
@@ -79,6 +82,7 @@ const styles = StyleSheet.create({
         left:5,
         justifyContent:"center",
         alignContent:"center",
+        alignItems:'center',
         borderRadius:50
     }
 })
