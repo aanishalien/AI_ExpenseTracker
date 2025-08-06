@@ -30,7 +30,7 @@ const SwiperButton =()=>{
             if (position.value > END_POSITION / 2){
                 position.value = 0;
                 onLeft.value = true;
-                router.push("/(tabs)/home")
+                router.push("/(auth)/signup")
             } else{
                 position.value = withTiming(0, {duration: 20});
                 onLeft.value = true;

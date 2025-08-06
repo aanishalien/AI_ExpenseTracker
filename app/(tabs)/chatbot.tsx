@@ -6,7 +6,7 @@ import NavBar from "@/components/NavBar"
 export default function Welcome(){
     return(
         <View style={styles.container}>
-            
+            <NavBar/>
             <View style={styles.card}>
                 <Text style={styles.title}>Aanish Rizmy</Text>
                 <View style={styles.row}>
